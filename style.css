@@ -1,0 +1,37 @@
+body {
+  text-align: center;
+}
+#enterDetails {
+  float: left;
+  width: 50%;
+  background-color: darkslategray;
+  color: floralwhite;
+}
+#findDetails {
+  float: left;
+  width: 50%;
+  background-color: floralwhite;
+  color: darkslategray;
+}
+input {
+  width: 120px;
+}
+
+#product-grid {
+  display: flex;
+  justify-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px 100px;
+}
+#secand {
+  height: 400px;
+  width: 500px;
+  background-color: antiquewhite;
+}
+#editImg {
+  height: 100px;
+
+  width: 100px;
+  padding-top: 10px;
+}

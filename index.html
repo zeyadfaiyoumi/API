@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="product-grid"></div>
+
+    <div id="enterDetails">
+      <h1>Enter details</h1>
+
+      <h4>ID</h4>
+      <input id="enterID" type="text" />
+
+      <h4>Name</h4>
+      <input id="enterName" type="text" />
+
+      <h4>Age</h4>
+      <input id="enterAge" type="number" /> <br /><br />
+
+      <button id="insert">post</button>
+    </div>
+
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+      import {
+        getDatabase,
+        ref,
+        set,
+        update,
+        remove,
+        child,
+      } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
+
+      const firebaseConfig = {
+        apiKey: "AIzaSyA-n2v_kxdbPNhjEHgtEsy2ucMurjCbA18",
+        authDomain: "backend-9c129.firebaseapp.com",
+        databaseURL:
+          "https://backend-9c129-default-rtdb.europe-west1.firebasedatabase.app",
+        projectId: "backend-9c129",
+        storageBucket: "backend-9c129.appspot.com",
+        messagingSenderId: "205099213983",
+        appId: "1:205099213983:web:f30e64a0f068385d0b6eaa",
+        databaseURL:
+          "https://backend-9c129-default-rtdb.europe-west1.firebasedatabase.app",
+      };
+
+      const app = initializeApp(firebaseConfig);
+
+      const db = getDatabase();
+
+      let ids = document.getElementById("enterID");
+      let name = document.getElementById("enterName");
+      let age = document.getElementById("enterAge");
+      function add() {
+        // e.preventDefault();
+        set(ref(db, "User/" + ids.value), {
+          User: document.getElementById("enterName").value,
+          id: document.getElementById("enterID").value,
+          age: document.getElementById("enterAge").value,
+        }).then(() => {
+          alert("done");
+        });
+      }
+
+      document.getElementById("insert").addEventListener("click", add);
+    </script>
+    <script src="app.js"></script>
+  </body>
+</html>
